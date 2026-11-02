@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 
 export const monumentGrotesk = localFont({
-  src: "./public/sites/klimtwine/fonts/ABCMonumentGrotesk-Regular.woff2",
+  src: "../../public/sites/klimtwine/fonts/ABCMonumentGrotesk_Regular.woff2",
   weight: "400",
   style: "normal",
   variable: "--font-body",
@@ -10,7 +10,7 @@ export const monumentGrotesk = localFont({
 });
 
 export const canela = localFont({
-  src: "./public/sites/klimtwine/fonts/Canela-Thin.woff2",
+  src: "../../public/sites/klimtwine/fonts/Canela_Thin_Web.woff2",
   weight: "100",
   style: "normal",
   variable: "--font-heading",

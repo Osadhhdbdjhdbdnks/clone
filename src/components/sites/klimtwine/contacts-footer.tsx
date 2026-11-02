@@ -59,7 +59,7 @@ export function ContactsFooter() {
               className="h-6 w-auto"
             />
             <a
-              href="https://klimtwine.com/en/privacy"
+              href="/privacy"
               className="klimt-body opacity-70 hover:opacity-100"
             >
               Privacy Policy
