@@ -4,9 +4,13 @@ import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
   KLIMT_ASSET,
+  LOCALE_PATH,
+  OTHER_LOCALE,
+  COPY,
+  type Locale,
 } from "./data";
 
-export function ContactsFooter() {
+export function ContactsFooter({ locale = "en" }: { locale?: Locale }) {
   return (
     <footer
       id="contacts"
@@ -25,7 +29,7 @@ export function ContactsFooter() {
               className="h-10 w-auto"
             />
             <p className="klimt-subtitle m-0 max-w-[420px]">
-              KLIMT Wine by Esterházy Distributed in Québec by Divin Paradis
+              {COPY.footerTagline[locale]}
             </p>
           </div>
           <address className="flex flex-col items-start gap-4 not-italic">
@@ -42,8 +46,11 @@ export function ContactsFooter() {
               {CONTACT_PHONE}
             </a>
             <p className="klimt-body m-0 opacity-80">{CONTACT_ADDRESS}</p>
-            <a href="/fr" className="klimt-body underline underline-offset-4">
-              En/Fr
+            <a
+              href={`${LOCALE_PATH[OTHER_LOCALE[locale]] || "/"}`}
+              className="klimt-body underline underline-offset-4"
+            >
+              {locale === "fr" ? "Fr/En" : "En/Fr"}
             </a>
           </address>
         </div>
@@ -59,10 +66,10 @@ export function ContactsFooter() {
               className="h-6 w-auto"
             />
             <a
-              href="/privacy"
+              href={locale === "fr" ? "/fr/privacy" : "/privacy"}
               className="klimt-body opacity-70 hover:opacity-100"
             >
-              Privacy Policy
+              {COPY.privacyLink[locale]}
             </a>
           </div>
           <p className="klimt-body m-0 opacity-70">

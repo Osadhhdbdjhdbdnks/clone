@@ -1,7 +1,7 @@
 import Image from "next/image";
-import { KLIMT_ASSET, WINES } from "./data";
+import { COPY, KLIMT_ASSET, WINES, type Locale } from "./data";
 
-export function HeroSection() {
+export function HeroSection({ locale = "en" }: { locale?: Locale }) {
   return (
     <section
       data-hero-section="true"
@@ -24,11 +24,11 @@ export function HeroSection() {
       <div className="relative z-10 mx-auto mb-6 w-full max-w-[1600px] px-5 sm:px-8">
         <a
           href="#wines"
-          aria-label="Our Wines"
+          aria-label={COPY.ourWines[locale]}
           className="inline-flex min-h-12 items-center gap-3 rounded-full bg-white px-4 py-1 text-klimt-brown no-underline transition-shadow hover:shadow-lg xl:min-h-16"
         >
           <span className="klimt-body whitespace-nowrap font-normal">
-            Our Wines
+            {COPY.ourWines[locale]}
           </span>
           <span className="flex -space-x-1">
             {WINES.map((w) => (
@@ -52,22 +52,19 @@ export function HeroSection() {
           data-hero-title="true"
           className="klimt-h1 m-0 text-klimt-sand"
         >
-          Where Art
+          {COPY.heroTitle[locale][0]}
           <br />
-          Meets Wine
+          {COPY.heroTitle[locale][1]}
         </h1>
         <div className="mt-8 flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <p
             data-hero-behind-text="true"
             className="klimt-subtitle max-w-[540px] text-klimt-sand/90"
           >
-            Explore the taste of KLIMT Wines - a collection crafted with passion
-            and inspired by art.
+            {COPY.heroSubtitle[locale]}
           </p>
           <p className="klimt-body max-w-[420px] text-klimt-sand/70">
-            The Esterházy family has shaped Austrian culture for centuries.
-            KLIMT wines continue this legacy, inspired by Gustav Klimt&apos;s
-            The Kiss.
+            {COPY.heroLead[locale]}
           </p>
         </div>
       </div>

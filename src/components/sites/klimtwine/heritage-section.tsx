@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { KLIMT_ASSET } from "./data";
+import { COPY, KLIMT_ASSET, type Locale } from "./data";
 
 const SLIDES = [
   {
@@ -16,7 +16,7 @@ const SLIDES = [
   },
 ];
 
-export function HeritageSection() {
+export function HeritageSection({ locale = "en" }: { locale?: Locale }) {
   return (
     <section
       id="heritage"
@@ -25,18 +25,17 @@ export function HeritageSection() {
     >
       <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-8">
         <p className="klimt-body mb-10 max-w-[640px] opacity-80">
-          The Esterházy family has shaped Austrian culture for centuries. KLIMT
-          wines continue this legacy, inspired by Gustav Klimt&apos;s The Kiss.
+          {COPY.heritageLead[locale]}
         </p>
 
         <h2 className="klimt-h2 m-0" data-culture-title="true">
-          The culture shaped the spirit
+          {COPY.heritageTitle1[locale]}
         </h2>
         <h2
           className="klimt-h2 mt-3 text-klimt-lightyellow"
           data-culture-second-title="true"
         >
-          Together, they shaped KLIMT
+          {COPY.heritageTitle2[locale]}
         </h2>
 
         {/* Carousel slides */}
@@ -55,8 +54,7 @@ export function HeritageSection() {
           ))}
         </div>
         <p className="klimt-subtitle mt-10 max-w-[720px]">
-          Klimt Wine follows the quiet rhythm of the vineyard, from generous
-          tables to open fields and golden evening light.
+          {COPY.heritageText[locale]}
         </p>
 
         {/* EU programme badge */}

@@ -1,10 +1,16 @@
 import Image from "next/image";
-import { SAQ_BUY_NOW_URL, WINES } from "./data";
+import { COPY, SAQ_BUY_NOW_URL, WINES, WINES_FR, type Locale } from "./data";
 
-export function WinesSection() {
+export function WinesSection({ locale = "en" }: { locale?: Locale }) {
   return (
     <section id="wines" aria-label="Our wines" className="relative">
-      {WINES.map((wine, i) => (
+      {WINES.map((wine, i) => {
+        const fr = WINES_FR[wine.id];
+        const title = locale === "fr" && fr ? fr.title : wine.title;
+        const tasting = locale === "fr" && fr ? fr.tasting : wine.tasting;
+        const description =
+          locale === "fr" && fr ? fr.description : wine.description;
+        return (
         <article
           key={wine.id}
           id={wine.id}
@@ -29,10 +35,10 @@ export function WinesSection() {
               <p className="klimt-body tracking-wide uppercase opacity-70">
                 {wine.number} — {wine.name}
               </p>
-              <h2 className="klimt-h2 m-0">{wine.title}</h2>
-              <p className="klimt-subtitle m-0 max-w-[540px]">{wine.tasting}</p>
+              <h2 className="klimt-h2 m-0">{title}</h2>
+              <p className="klimt-subtitle m-0 max-w-[540px]">{tasting}</p>
               <p className="klimt-body m-0 max-w-[480px] opacity-80">
-                {wine.description}
+                {description}
               </p>
               <a
                 href={SAQ_BUY_NOW_URL}
@@ -44,7 +50,7 @@ export function WinesSection() {
                     : "bg-klimt-brown text-klimt-sand"
                 }`}
               >
-                Buy Now
+                {COPY.buyNow[locale]}
               </a>
             </div>
 
@@ -60,7 +66,7 @@ export function WinesSection() {
               />
               <Image
                 src={wine.image}
-                alt={wine.title}
+                alt={title}
                 width={420}
                 height={620}
                 loading="lazy"
@@ -69,7 +75,8 @@ export function WinesSection() {
             </div>
           </div>
         </article>
-      ))}
+        );
+      })}
     </section>
   );
 }

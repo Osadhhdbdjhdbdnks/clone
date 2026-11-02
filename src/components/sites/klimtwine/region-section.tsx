@@ -1,4 +1,6 @@
-export function RegionSection() {
+import { COPY, type Locale } from "./data";
+
+export function RegionSection({ locale = "en" }: { locale?: Locale }) {
   return (
     <section
       id="region"
@@ -7,12 +9,12 @@ export function RegionSection() {
     >
       <div className="mx-auto w-full max-w-[1600px] px-5 sm:px-8">
         <p className="klimt-body uppercase tracking-[0.2em] opacity-60">
-          Austria: Land
+          {COPY.regionEyebrow[locale]}
         </p>
         <h2 className="klimt-h1 m-0 leading-none" data-map-intro-title="true">
-          Burgenland:
+          {COPY.regionTitle1[locale]}
           <br />
-          <span className="text-klimt-red">The Wine Region</span>
+          <span className="text-klimt-red">{COPY.regionTitle2[locale]}</span>
         </h2>
 
         {/* Meta row */}
@@ -83,11 +85,7 @@ export function RegionSection() {
         </div>
 
         <p className="klimt-subtitle mt-14 max-w-[560px]">
-          Burgenland lies along Austria&apos;s warm eastern edge — a landscape
-          shaped by sun, wind, and long-standing winemaking traditions.
-          <br />
-          Here, wines with clear, expressive character take form: balanced,
-          structured, and unmistakably Austrian.
+          {COPY.regionText[locale]}
         </p>
       </div>
     </section>

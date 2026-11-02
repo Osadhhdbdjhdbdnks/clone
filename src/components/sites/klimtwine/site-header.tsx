@@ -3,9 +3,17 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { NAV_LINKS, SAQ_SEARCH_URL, KLIMT_ASSET } from "./data";
+import {
+  COPY,
+  KLIMT_ASSET,
+  LOCALE_PATH,
+  OTHER_LOCALE,
+  SAQ_SEARCH_URL,
+  navLinks,
+  type Locale,
+} from "./data";
 
-export function SiteHeader() {
+export function SiteHeader({ locale = "en" }: { locale?: Locale }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
 
@@ -40,7 +48,7 @@ export function SiteHeader() {
 
         {/* Desktop nav */}
         <nav className="hidden items-center gap-8 lg:flex">
-          {NAV_LINKS.map((l) => (
+          {navLinks(locale).map((l) => (
             <a
               key={l.href}
               href={l.href}
@@ -50,10 +58,10 @@ export function SiteHeader() {
             </a>
           ))}
           <a
-            href="/fr"
+            href={`${LOCALE_PATH[OTHER_LOCALE[locale]] || "/"}`}
             className="klimt-body text-klimt-sand transition-opacity hover:opacity-70"
           >
-            En/Fr
+            {locale === "fr" ? "Fr/En" : "En/Fr"}
           </a>
           <a
             href={SAQ_SEARCH_URL}
@@ -61,7 +69,7 @@ export function SiteHeader() {
             rel="noreferrer"
             className="klimt-body rounded-full border border-klimt-sand/30 bg-klimt-sand px-6 py-3 text-klimt-brown transition-opacity hover:opacity-70"
           >
-            Buy Klimt Wines
+            {COPY.buyNav[locale]}
           </a>
         </nav>
 
@@ -87,7 +95,7 @@ export function SiteHeader() {
           className="absolute inset-0 top-0 z-40 flex min-h-dvh flex-col justify-between bg-klimt-background px-5 pb-10 pt-24 lg:hidden"
         >
           <nav className="flex flex-col gap-4">
-            {NAV_LINKS.map((l) => (
+            {navLinks(locale).map((l) => (
               <a
                 key={l.href}
                 href={l.href}
@@ -97,8 +105,11 @@ export function SiteHeader() {
                 {l.label}
               </a>
             ))}
-            <a href="/fr" className="klimt-h2 text-klimt-brown">
-              En/Fr
+            <a
+              href={`${LOCALE_PATH[OTHER_LOCALE[locale]] || "/"}`}
+              className="klimt-h2 text-klimt-brown"
+            >
+              {locale === "fr" ? "Fr/En" : "En/Fr"}
             </a>
           </nav>
           <div className="flex flex-col gap-6">
@@ -108,7 +119,7 @@ export function SiteHeader() {
               rel="noreferrer"
               className="klimt-subtitle self-start rounded-full bg-klimt-sand px-8 py-4 text-klimt-brown"
             >
-              Buy Klimt Wines
+              {COPY.buyNav[locale]}
             </a>
             <button
               type="button"
