@@ -26,7 +26,7 @@ Route map: `/en` → local `/` (first root clone replaces untouched template hom
 ## Interactions observed
 - Scroll-driven: header hide/show, wine panel pinned reveals, heritage pinned title swaps, region zoom labels.
 - Click: mobile menu, wine selector chips (anchor to #wine-*), external buy links (new tab).
-- Time: intro video autoplay muted loop; loader progress.
+- Time: intro video is **scroll-scrubbed** (each scroll step shows a different frame; implemented in hero-carousel.tsx via video.currentTime mapping), pinned two-scene slide to "Behind the brand" panel; loader progress.
 
 ## Asset map (source URL → public/sites/klimtwine/)
 All CMS uploads + /logo.png, /logo_white.png, /ai-modified.svg, /buy-section/cta_branch_v2.webp downloaded with original filenames (except video_intro_c5a431e24b.webm → video_intro.webm). Fonts → fonts/.

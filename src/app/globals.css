@@ -176,6 +176,14 @@
 }
 @media (min-width: 1440px) { .klimt-body { font-size: 18px; } }
 
+.klimt-metadata {
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 140%;
+  letter-spacing: 0.08em;
+}
+@media (min-width: 1440px) { .klimt-metadata { font-size: 14px; } }
+
 html {
   scroll-behavior: smooth;
 }
