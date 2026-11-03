@@ -10,8 +10,8 @@ import {
 } from "./data";
 
 const PARTNERS = [
-  { regionKey: "qcRegion", name: "SAQ", href: SAQ_VISIT_URL },
-  { regionKey: "onRegion", name: "LCBO", href: LCBO_VISIT_URL },
+  { regionKey: "qcRegion" as const, name: "SAQ", href: SAQ_VISIT_URL },
+  { regionKey: "onRegion" as const, name: "LCBO", href: LCBO_VISIT_URL },
 ];
 
 function ArrowIcon({ className }: { className?: string }) {
