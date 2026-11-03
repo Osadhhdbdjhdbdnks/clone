@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { SiteHeader } from "@/components/sites/klimtwine/site-header";
-import { HeroSection } from "@/components/sites/klimtwine/hero-section";
+import { HeroCarousel } from "@/components/sites/klimtwine/hero-carousel";
 import { WinesSection } from "@/components/sites/klimtwine/wines-section";
 import { HeritageSection } from "@/components/sites/klimtwine/heritage-section";
 import { RegionSection } from "@/components/sites/klimtwine/region-section";
@@ -20,7 +20,7 @@ export default function HomeFr() {
     <>
       <SiteHeader locale={locale} />
       <main className="flex-1">
-        <HeroSection locale={locale} />
+        <HeroCarousel locale={locale} />
         <WinesSection locale={locale} />
         <HeritageSection locale={locale} />
         <RegionSection locale={locale} />

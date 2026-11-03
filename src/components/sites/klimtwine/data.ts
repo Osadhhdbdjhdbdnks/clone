@@ -132,6 +132,10 @@ export const COPY = {
     fr: "La famille Esterházy a façonné la culture autrichienne pendant des siècles. Les vins KLIMT perpétuent cet héritage, inspirés par Le Baiser de Gustav Klimt.",
   } as Record<Locale, string>,
   ourWines: { en: "Our Wines", fr: "Nos vins" } as Record<Locale, string>,
+  behindTheBrand: {
+    en: "Behind the brand",
+    fr: "Derrière la marque",
+  } as Record<Locale, string>,
   scroll: { en: "Scroll to explore", fr: "Défilez pour explorer" } as Record<Locale, string>,
   buyNow: { en: "Buy Now", fr: "Acheter" } as Record<Locale, string>,
   buyNav: {

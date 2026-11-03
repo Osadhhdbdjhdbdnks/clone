@@ -1,5 +1,5 @@
 import { SiteHeader } from "@/components/sites/klimtwine/site-header";
-import { HeroSection } from "@/components/sites/klimtwine/hero-section";
+import { HeroCarousel } from "@/components/sites/klimtwine/hero-carousel";
 import { WinesSection } from "@/components/sites/klimtwine/wines-section";
 import { HeritageSection } from "@/components/sites/klimtwine/heritage-section";
 import { RegionSection } from "@/components/sites/klimtwine/region-section";
@@ -19,7 +19,7 @@ export default function Home() {
     <>
       <SiteHeader />
       <main className="flex-1">
-        <HeroSection />
+        <HeroCarousel />
         <WinesSection />
         <HeritageSection />
         <RegionSection />
